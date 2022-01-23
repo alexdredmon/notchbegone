@@ -18,3 +18,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NOTCHBEGONE_WEB }}'
           channelId: live
           projectId: notchbegone-web
+          entryPoint: web
