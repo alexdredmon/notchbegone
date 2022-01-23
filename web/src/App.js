@@ -21,7 +21,9 @@ function App() {
       "Content-Type": file.type,
     }
     axios.post(
-      'http://localhost:7001/upload/',
+      // TODO: move to env var
+      // 'http://localhost:7001/upload/',
+      'https://us-central1-notch-be-gone.cloudfunctions.net/upload',
       formData,
       headers,
     ).then(response => {
