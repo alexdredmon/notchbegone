@@ -9,11 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: yarn && yarn build:prod
-        working-directory: ./web
+      - run: cd web && yarn && yarn build:prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NOTCHBEGONE_WEB }}'
           projectId: notchbegone-web
-        working-directory: ./web
+          entryPoint: "./web"
