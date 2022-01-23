@@ -6,6 +6,6 @@ services:
     container_name: notchbegone-api
     build: ./api
     ports:
-      - "7001:80"
+      - "7001:5000"
     volumes:
       - "./api:/app"

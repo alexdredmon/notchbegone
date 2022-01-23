@@ -1,35 +1,22 @@
 import base64
-from cmath import rect
-from fastapi import FastAPI, File
-from fastapi.middleware.cors import CORSMiddleware
-
-from PIL import Image, ImageDraw
 import io
-
-app = FastAPI()
-origins = [
-    "http://localhost:3000"
-]
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-@app.get("/")
-async def root():
-    return {"status": "OK"}
+from PIL import Image, ImageDraw
 
 NOTCH_HEIGHT = 65
 TARGET_DEVICE_WIDTH = 3024
 TARGET_DEVICE_HEIGHT = 1964
 
-@app.post("/upload/")
-async def upload(file: bytes = File(...)):
-    image = Image.open(io.BytesIO(file))
-    print(image.size)
+def action(request):
+    if request.method != "POST":
+        headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Max-Age': '3600'
+        }
+        return ('', 204, headers)
+    file = request.files["file"]
+    image = Image.open(io.BytesIO(file.read()))
     size = image.size
     width = size[0]
     height = size[1]
@@ -55,7 +42,13 @@ async def upload(file: bytes = File(...)):
 
     modified = io.BytesIO()
     image.save(modified, format='JPEG')
-
-    return {
-        "image": base64.b64encode(modified.getvalue()),
+    headers = {
+        'Access-Control-Allow-Origin': '*'
     }
+    return (
+        {
+            "image": base64.b64encode(modified.getvalue()).decode('utf-8'),
+        },
+        200,
+        headers,
+    )

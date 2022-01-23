@@ -21,9 +21,7 @@ function App() {
       "Content-Type": file.type,
     }
     axios.post(
-      // TODO: move to env var
-      // 'http://localhost:7001/upload/',
-      'https://us-central1-notch-be-gone.cloudfunctions.net/upload',
+      `${process.env.REACT_APP_NOTCHBEGONE_API_URL}/upload`,
       formData,
       headers,
     ).then(response => {
