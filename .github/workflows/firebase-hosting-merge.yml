@@ -12,10 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn && yarn build:prod
+        working-directory: ./web
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NOTCHBEGONE_WEB }}'
           channelId: live
           projectId: notchbegone-web
-          entryPoint: "./web"
+        working-directory: ./web
