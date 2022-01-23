@@ -1,7 +1,10 @@
 anyio==3.5.0
 fastapi==0.72.0
 idna==3.3
+Pillow==9.0.0
 pydantic==1.9.0
+python-multipart==0.0.5
+six==1.16.0
 sniffio==1.2.0
 starlette==0.17.1
 typing_extensions==4.0.1

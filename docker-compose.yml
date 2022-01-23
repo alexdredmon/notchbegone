@@ -8,4 +8,4 @@ services:
     ports:
       - "7001:80"
     volumes:
-      - "./api:/api"
+      - "./api:/app"
