@@ -1,20 +1,28 @@
 import { useState } from 'react'
 import axios from 'axios'
 import './App.css'
+import Slider from '@mui/material/Slider'
+
 
 import If from './util'
 
+function getBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
+const DEFAULT_OPACITY = 75
 function App() {
+  const [file, setFile] = useState()
   const [image, setImage] = useState()
   const [loading, setLoading] = useState(false)
-  const [opacity, setOpacity] = useState(75)
+  const [opacity, setOpacity] = useState(DEFAULT_OPACITY)
 
-  const handleSelectFile = e => {
+  const handleUploadFile = () => {
     setLoading(true)
-    const file = e.target.files[0]
-    if (! file) {
-      return false
-    }
     let formData = new FormData()
     formData.append(
       'opacity',
@@ -38,12 +46,26 @@ function App() {
       setTimeout(() => {
         document.getElementById('download-link').click()
         setLoading(false)
+        setImage(null)
+        setFile(null)
+        setOpacity(DEFAULT_OPACITY)
       }, 200)
     })
     const uploadInput = document.getElementById('file-upload')
     if (uploadInput) {
       uploadInput.value = null
     }
+  }
+
+  const handleSelectFile = e => {
+    const upload = e.target.files[0]
+    if (! upload) {
+      return false
+    }
+    setFile(upload)
+    getBase64(upload).then(data => {
+      setImage(`${data}`)
+    })
   }
   return (
     <div className="App">
@@ -59,26 +81,13 @@ function App() {
           alt="Free notchless background generator"
         />
       </header>
-      <If condition={! loading}>
+      <If condition={! image}>
         <img
           className="AppDemo"
           src="/img/demo.png"
           alt=""
         />
-        <div className="OpacityRow">
-          <label>
-            Overlay Opacity:
-          </label>
-          <input
-            className="OpacitySetting"
-            type="number"
-            onChange={e => setOpacity(e.currentTarget.value)}
-            max="100"
-            min="1"
-            value={opacity}
-          />
-          <label>%</label>
-        </div>
+        
         <input
           accept="*.csv"
           style={{ display: 'none' }}
@@ -93,6 +102,43 @@ function App() {
             onClick={() => document.getElementById('file-upload').click()}
           ></button>
         </label>
+      </If>
+      <If condition={image}>
+        <div className="OpacityRow">
+          <label>
+            Overlay Opacity: {opacity}%
+          </label>
+          <Slider
+            value={opacity}
+            onChange={e => setOpacity(e.target.value)}
+            max={100}
+            min={1}
+            style={{
+              color: '#000000',
+            }}
+          />
+        </div>
+        <div
+          className="PreviewImage"
+          id="img"
+          style={{
+            backgroundImage: `url(${image})`,
+          }}
+        >
+          <div className="PreviewNotch" />
+          <div
+            className="PreviewBar"
+            style={{
+              opacity: opacity / 100,
+            }}
+          />
+        </div>
+      </If>
+      <If condition={image && ! loading}>
+        <button
+          className="DownloadButton"
+          onClick={handleUploadFile}
+        ></button>
       </If>
       <If condition={loading}>
         <h1>
