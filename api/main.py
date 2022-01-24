@@ -2,11 +2,11 @@ import base64
 import io
 from PIL import Image, ImageDraw
 
+DEFAULT_OPACITY = 75
 NOTCH_HEIGHT = 65
 TARGET_DEVICE_WIDTH = 3024
 TARGET_DEVICE_HEIGHT = 1964
 TINT_COLOR = (0, 0, 0)
-OPACITY = int(255 * .75)
 
 def action(request):
     if request.method != "POST":
@@ -17,6 +17,7 @@ def action(request):
             'Access-Control-Max-Age': '3600'
         }
         return ('', 204, headers)
+    opacity = int((int(request.form.get("opacity")) or DEFAULT_OPACITY) / 100 * 255)
     file = request.files["file"]
     image = Image.open(io.BytesIO(file.read()))
     image = image.convert("RGBA")
@@ -46,7 +47,7 @@ def action(request):
             (0, 0),
             (width, notch_height)
         ),
-        fill=TINT_COLOR+(OPACITY,)
+        fill=TINT_COLOR+(opacity,)
     )
 
     image = Image.alpha_composite(image, overlay)

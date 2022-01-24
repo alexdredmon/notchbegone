@@ -6,12 +6,20 @@ import If from './util'
 
 function App() {
   const [image, setImage] = useState()
+  const [loading, setLoading] = useState(false)
+  const [opacity, setOpacity] = useState(75)
+
   const handleSelectFile = e => {
+    setLoading(true)
     const file = e.target.files[0]
     if (! file) {
       return false
     }
     let formData = new FormData()
+    formData.append(
+      'opacity',
+      opacity,
+    )
     formData.append(
       'file',
       file,
@@ -29,6 +37,7 @@ function App() {
       setImage(`data:image/jpeg;base64,${image}`)
       setTimeout(() => {
         document.getElementById('download-link').click()
+        setLoading(false)
       }, 200)
     })
     const uploadInput = document.getElementById('file-upload')
@@ -50,12 +59,26 @@ function App() {
           alt="Free notchless background generator"
         />
       </header>
-      <If condition={true || ! image}>
+      <If condition={! loading}>
         <img
           className="AppDemo"
           src="/img/demo.png"
           alt=""
         />
+        <div className="OpacityRow">
+          <label>
+            Overlay Opacity:
+          </label>
+          <input
+            className="OpacitySetting"
+            type="number"
+            onChange={e => setOpacity(e.currentTarget.value)}
+            max="100"
+            min="1"
+            value={opacity}
+          />
+          <label>%</label>
+        </div>
         <input
           accept="*.csv"
           style={{ display: 'none' }}
@@ -71,10 +94,15 @@ function App() {
           ></button>
         </label>
       </If>
+      <If condition={loading}>
+        <h1>
+          Crafting your image...
+        </h1>
+      </If>
         <a
           href={image}
           id="download-link"
-          download
+          download="NotchBeGoneBackground.jpg"
           style={{
             display: 'none',
           }}

@@ -28,6 +28,39 @@
   border: none;
   
 }
+.OpacityRow {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  color: #2a3030;
+  font-family: "Permanent Marker";
+}
+.OpacityRow label {
+  font-size: 26px;
+  margin-top: 8px;
+}
+.OpacitySetting {
+  color: #2a3030;
+  padding: 10px 10px 10px 0;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 26px;
+  border-radius: 15px;
+  border: none;
+  width: 65px;
+  text-align: center;
+  background: transparent;
+  font-family: "Permanent Marker";
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: .5;
+}
+h1 {
+  color: #2a3030;
+  font-family: 'Permanent Marker';
+  text-align: center;
+}
 header {
   display: flex;
   max-width: calc(100vw);
