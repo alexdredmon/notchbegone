@@ -72,10 +72,12 @@
   flex-direction: column;
   color: #2a3030;
   font-family: "Permanent Marker";
+  width: 300px;
 }
 .OpacityRow label {
   font-size: 26px;
   margin-top: 8px;
+  margin-left: 20px;
 }
 .OpacitySetting {
   color: #2a3030;
@@ -86,7 +88,7 @@
   border-radius: 15px;
   border: none;
   width: 65px;
-  text-align: center;
+  text-align: left;
   background: transparent;
   font-family: "Permanent Marker";
 }
