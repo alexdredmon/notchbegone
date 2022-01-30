@@ -1,0 +1,48 @@
+.demo {
+  background-image:  url('/public/img/dark-background.png');
+  border-radius:  10px;
+  border:  7px solid #2e2f2c;
+  padding:  10px;
+  margin: 0 calc(2vw);
+  max-width: 1000px;
+}
+.wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.beforeAndAfter {
+  display: flex;
+  flex-direction: row;
+  margin-bottom:  10px;
+}
+.beforeAndAfter div {
+  display: flex;
+  padding:  5px;
+}
+.beforeAndAfter div img {
+  display:  inline-block;
+  object-fit: contain;
+  max-width: 436px;
+  width:  100%;
+}
+.description {
+  color:  #e8d6ca;
+  font-family: "Bebas Neue";
+  font-weight: 100;
+  font-size:  4.2vw;
+  text-align: center;
+}
+.description p {
+  margin: 0;
+}
+.description strong {
+  color: #ffc904;
+}
+.description span {
+  display: inline-block;
+  margin: 0 0 0 10px;
+  padding: 0;
+  color: #86d6df;
+}

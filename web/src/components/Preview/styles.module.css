@@ -1,0 +1,126 @@
+.preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.image {
+  background-size: cover;
+  background-position: center;
+  height:  calc(52vw);
+  width:  calc(80vw);
+  border: 5px solid #000000;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.notch {
+  position: absolute;
+  left:  calc(34.6vw);
+  height: calc(1.6vw);
+  width:  calc(11vw);
+  border-bottom-left-radius: calc(.625vw);
+  border-bottom-right-radius: calc(.625vw);
+  top:  0px;
+  background-color: #000000;
+  z-index: 5;
+}
+.bar {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(1.6vw);
+  background-color: #000000;
+}
+.loading {
+  color:  #e8d6ca;
+  font-family: "Bebas Neue";
+  font-size:  34px;
+  background-color: #000000c7;
+  padding:  10px 20px;
+  border-radius:  35px;
+}
+.settings {
+  color:  #e8d6ca;
+  font-family: "Bebas Neue";
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size:  20px;
+  width:  calc(80vw - 30px);
+  background-color: #000000c7;
+  padding:  10px 20px;
+  border-radius:  10px;
+  margin-top:  10px;
+}
+.settings figure {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  color: #ffc904;
+}
+.device {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.model {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.settings label {
+  color:  #e8d6ca;
+  white-space: nowrap;
+  margin-right:  10px;
+}
+.download {
+  border:  3px solid #426c83;
+  cursor: pointer;
+  border-radius:  35px;
+  background-image: url('/public/img/button-background-blue.png');
+  font-family: "Bebas Neue";
+  font-size:  34px;
+  color:  #e8d6ca;
+  width: 365px;
+  height: 56px;
+}
+.reselect {
+  border:  3px solid #a1170f;
+  cursor: pointer;
+  border-radius:  15px;
+  background-color: #d61d21cc;
+  font-family: "Bebas Neue";
+  font-size:  34px;
+  color:  #fff;
+  width: 365px;
+  height: 56px;
+  margin-top:  15px;
+}
+@media only screen and (max-width : 500px) {
+  .settings {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .model {
+    margin-left: 0px;
+    margin-top:  15px;
+  }
+  .download {
+    width:  253px;
+    height:  39px;
+    font-size:  20px;
+  }
+  .reselect {
+    width:  253px;
+    height:  39px;
+    font-size:  20px;
+  }
+}

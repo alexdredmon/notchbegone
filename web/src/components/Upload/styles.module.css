@@ -1,0 +1,17 @@
+.button {
+  cursor: pointer;
+  margin-top: 25px;
+  background-size: 363px;
+  height: 57px;
+  width: 363px;
+  background-color: transparent;
+  background-image: url('/public/img/button-background.png');
+  border: none;
+  background-size: cover;
+  font-family: "Bebas Neue";
+  font-size:  34px;
+  color:  #e8d6ca;
+  border-radius:  35px;
+  border:  3px solid #a1170f;
+  background-color: #d61d21cc;
+}

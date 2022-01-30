@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  flex-direction: row;
+}
+.logo {
+  align-items: flex-start;
+  display: flex;
+  flex: 1.5;
+  justify-content: flex-start;
+  padding: calc(5vw);
+}
+.logo img {
+  display:  inline-block;
+  object-fit: contain;
+  max-width: 478px;
+  width:  100%;
+}
+.title {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  padding: calc(5vw);
+}
+.title img {
+  max-width: 349px;
+  width:  100%;
+  object-fit: contain;
+}
