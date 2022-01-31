@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn test
+        with:
+          entryPoint: "./web"
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
