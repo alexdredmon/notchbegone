@@ -1,5 +1,5 @@
 # Notch Be Gone 💻
-[![Build, Test & Deploy](https://github.com/alexdredmon/notchbegone/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/alexdredmon/notchbegone/actions/workflows/firebase-hosting-merge.yml)
+[![Build, Test, & Deploy](https://github.com/alexdredmon/notchbegone/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/alexdredmon/notchbegone/actions/workflows/firebase-hosting-merge.yml)
 
 Dress up your notch with a smart looking dark title bar, custom tailored to your image - no installation required.
 
