@@ -7,18 +7,20 @@ name: Deploy to Firebase Hosting on merge
     branches:
       - main
 jobs:
-  run_tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          entryPoint: "./web"
-      - run: cd web && yarn && yarn test
+  # run_tests:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         entryPoint: "./web"
+  #     - run: cd web && yarn && yarn test
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd web && yarn && yarn build:prod
+      - run: cd web && yarn
+      - run: yarn test
+      - run: yarn build:prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
