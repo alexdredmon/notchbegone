@@ -19,8 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd web && yarn
-      - run: yarn test
-      - run: yarn build:prod
+      - run: cd web && yarn test
+      - run: cd web && yarn build:prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
