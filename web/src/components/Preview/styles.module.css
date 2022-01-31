@@ -18,6 +18,9 @@
   justify-content: center;
   flex-direction: column;
 }
+.phone .image {
+  width:  calc(24vw);
+}
 .notch {
   position: absolute;
   left:  calc(34.6vw);
@@ -29,6 +32,26 @@
   background-color: #000000;
   z-index: 5;
 }
+.phone .notch {
+  left:  calc(8vw);
+  width:  calc(8.5vw);
+  height:  calc(1.8vw);
+}
+.phone .bar {
+  height:  calc(1.8vw);
+}
+.phone .download, .phone .loading {
+  white-space: nowrap;
+  width:  300px;
+  font-size: 34px;
+  height:  56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phone .loading {
+  padding: 0;
+}
 .bar {
   position: absolute;
   z-index: 4;
@@ -39,12 +62,14 @@
   background-color: #000000;
 }
 .loading {
+  border:  3px solid #000;
   color:  #e8d6ca;
   font-family: "Bebas Neue";
   font-size:  34px;
   background-color: #000000c7;
   padding:  10px 20px;
   border-radius:  35px;
+  text-align: center;
 }
 .settings {
   color:  #e8d6ca;
@@ -58,6 +83,9 @@
   padding:  10px 20px;
   border-radius:  10px;
   margin-top:  10px;
+}
+.phone .settings {
+  width: calc(40vw);
 }
 .settings figure {
   display: inline-block;
@@ -90,6 +118,7 @@
   color:  #e8d6ca;
   width: 365px;
   height: 56px;
+  box-shadow: 0px 0px 15px -4px #000000;
 }
 .reselect {
   border:  3px solid #a1170f;
@@ -102,6 +131,22 @@
   width: 365px;
   height: 56px;
   margin-top:  15px;
+}
+@media only screen and (max-width : 1400px) {
+  .phone .image {
+    height:  757px;
+    width: 350px;
+  }
+  .phone .notch {
+    height: 30px;
+    width:  150px;
+    border-bottom-left-radius: 18px;
+    left: 100px;
+    border-bottom-right-radius: 18px;
+  }
+  .phone .bar {
+    height: 30px;
+  }
 }
 @media only screen and (max-width : 500px) {
   .settings {

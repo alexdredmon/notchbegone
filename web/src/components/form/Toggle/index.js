@@ -16,7 +16,6 @@ const Toggle = props => {
       value={value}
     >
       {options.map(option => {
-        console.log(option.value)
         const Icon = option.icon
         return (
           <ToggleButton

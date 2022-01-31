@@ -9,6 +9,7 @@ import Toggle from '../form/Toggle'
 
 import styles from './styles.module.css'
 
+
 var moment = require('moment')
 
 
@@ -25,10 +26,19 @@ const Preview = props => {
     }
   } = props
   const downloadLink = useRef(null)
+  const saveFileName = `notchbegone_background-${moment().format('YYYY-MM-DD_h-mm-ssa')}.jpeg`
 
   const handleUploadFile = () => {
     setLoading(true)
     let formData = new FormData()
+    formData.append(
+      'device',
+      device,
+    )
+    formData.append(
+      'model',
+      model,
+    )
     formData.append(
       'opacity',
       opacity,
@@ -64,10 +74,10 @@ const Preview = props => {
     setModel('14')
   }
 
-  const saveFileName = `notchbegone_background-${moment().format('YYYY-MM-DD_h-mm-ssa')}.jpg`
-
   return (
-    <section className={styles.preview}>
+    <section
+      className={`${styles.preview} ${device === 'phone' ? styles.phone : ''}`}
+    >
       <summary className={styles.settings}>
         <div className={styles.device}>
           <label>
@@ -116,10 +126,6 @@ const Preview = props => {
                   value: '13',
                 },
                 {
-                  label: '13 Pro',
-                  value: '13pro',
-                },
-                {
                   label: '12',
                   value: '12',
                 },
@@ -149,11 +155,10 @@ const Preview = props => {
         />
       </summary>
       <figure
-        className={styles.image}
+        className={`${styles.image} ${device === 'phone' ? styles.phone : ''}`}
         style={{
           backgroundImage: `url(${image})`,
         }}
-        // onClick={handleUploadFile}
       >
         <mark className={styles.notch} />
         <mark
@@ -164,7 +169,7 @@ const Preview = props => {
         />
         <If condition={! loading}>
           <button
-            title="Download Background"
+            title="Generate Background"
             className={styles.download}
             onClick={handleUploadFile}
           >

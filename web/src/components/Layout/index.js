@@ -41,6 +41,19 @@ const Layout = props => {
           <Demo />
         </If>
       </div>
+      <div className={styles.footer}>
+        <div className={styles.madeBy}>
+          <a href="https://alexandriaredmon.com/" target="_blank" rel="noreferrer">
+            Made by Alexandria
+          </a>
+        </div>
+        <div className={styles.viewSource}>
+          <a href="https://github.com/alexdredmon/notchbegone" target="_blank"  rel="noreferrer">
+            <img src="img/ghmark.png" className={styles.ghmark} alt="GitHub" />
+            View source
+          </a>
+        </div>
+      </div>
     </ThemeProvider>
   )
 }

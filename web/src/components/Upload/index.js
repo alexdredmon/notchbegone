@@ -6,7 +6,7 @@ import styles from './styles.module.css'
 const Upload = props => {
   const {
     state: {
-      setImage,
+      image, setImage,
       setFile,
     }
   } = props
@@ -40,7 +40,7 @@ const Upload = props => {
           className={styles.button}
           onClick={() => fileUpload.current.click()}
         >
-          Select an image
+          {image ? 'Reselect image' : 'Select an image'}
         </button>
       </label>
     </section>
