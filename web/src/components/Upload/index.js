@@ -28,7 +28,7 @@ const Upload = props => {
     <section>
       <label htmlFor="file-upload">
         <input
-          accept="*.csv"
+          accept="image/png, image/jpeg"
           style={{ display: 'none' }}
           ref={fileUpload}
           alt="File Upload"
@@ -43,6 +43,13 @@ const Upload = props => {
           {image ? 'Reselect image' : 'Select an image'}
         </button>
       </label>
+      <button
+        title="Mock File Select"
+        onClick={() => setImage("💻")}
+        style={{
+          display: 'none',
+        }}
+      />
     </section>
   )
 }

@@ -70,7 +70,7 @@ const Preview = props => {
   if (device === 'phone' && ['14', '16'].includes(model)) {
     setModel('13')
   }
-  if (device === 'laptop' && ['13', '13pro', '12', '11'].includes(model)) {
+  if (device === 'laptop' && ['13', '12', '11'].includes(model)) {
     setModel('14')
   }
 

@@ -21,6 +21,7 @@ const Toggle = props => {
           <ToggleButton
             key={option.value}
             onClick={() => setValue(option.value)}
+            data-testid={`toggle-option-${option.value}`}
             style={{
               color: value === option.value ? null : '#e8d6ca',
               textTransform: 'none',
