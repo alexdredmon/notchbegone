@@ -47,7 +47,7 @@ test('can select device and model', async () => {
 
   const laptop = screen.getByTestId("toggle-option-laptop")
   expect(laptop).toBeInTheDocument()
-  // laptop.click()
+  laptop.click()
 
   const laptopModel = ['14"', '16"']
   laptopModel.forEach(each => {

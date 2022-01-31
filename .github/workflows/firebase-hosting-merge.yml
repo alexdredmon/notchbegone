@@ -14,7 +14,7 @@ jobs:
   #       with:
   #         entryPoint: "./web"
   #     - run: cd web && yarn && yarn test
-  build_and_deploy:
+  "Build, Test, & Deploy":
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

@@ -173,7 +173,7 @@ const Preview = props => {
             className={styles.download}
             onClick={handleUploadFile}
           >
-            Generate Background
+            Generate
           </button>
         </If>
         <If condition={loading}>
