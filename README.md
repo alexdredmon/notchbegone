@@ -40,3 +40,11 @@ https://notchbegone.com
   cd web
   yarn test
   ```
+
+## Demo
+
+When run, the app should look like this:
+
+![Notch Be Gone](https://user-images.githubusercontent.com/20774517/151737126-0e4940ad-3938-4055-ad47-95891b5c0925.png)
+
+![Notch Be Gone Settings](https://user-images.githubusercontent.com/20774517/151737127-8bb83dc7-4fa5-44fa-ad90-8372532d8006.png)
