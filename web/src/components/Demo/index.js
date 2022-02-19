@@ -19,8 +19,6 @@ const Demo = props => {
         <div className={styles.description}>
           <p>
             Dress up your <strong>notch</strong> with a smart looking dark title bar
-          </p>
-          <p>
             Custom tailored to your image
             <span>no installation required</span>
           </p>
