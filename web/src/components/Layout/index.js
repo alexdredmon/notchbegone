@@ -49,7 +49,7 @@ const Layout = props => {
         </div>
         <div className={styles.viewSource}>
           <a href="https://github.com/alexdredmon/notchbegone" target="_blank"  rel="noreferrer">
-            <img src="img/ghmark.png" className={styles.ghmark} alt="GitHub" />
+            <img src="img/ghmark_dark.png" className={styles.ghmark} alt="GitHub" />
             View source
           </a>
         </div>

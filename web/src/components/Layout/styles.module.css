@@ -14,15 +14,17 @@ body {
 .ghmark {
   margin-right:  5px;
   width:  18px;
+  position: relative;
+  top: 2px;
 }
 .madeBy a, .viewSource a {
-  color: #86d6df !important;
+  color: #04414a !important;
   font-family: "Bebas Neue";
   text-decoration:  none;
   font-size: 20px;
 }
 .footer {
-  width:  calc(100vw - 45px);
+  width:  calc(100vw - 50px);
   display: flex;
   flex-direction: row;
   align-items: center;
